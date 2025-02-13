@@ -16,14 +16,18 @@ public class Attack : MonoBehaviour
         
     }
 
-    private void Update()
+    public void Strike()
     {
-        if (Input.GetKey(KeyCode.J) && attackCooldown < 1)
+        if (attackCooldown < 1)
         {
             anim.SetBool("attacking", true);
-            attackCooldown = 10;
+            attackCooldown = 5;
         }
-        if (attackCooldown < 10) attackCooldown-=1;
+    }
+
+    private void Update()
+    {
+        if (attackCooldown < 5) attackCooldown -= 1;
     }
 
 

@@ -10,13 +10,12 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D Collider;
     private bool doubleJump;
-    private bool hasJumped;
     private bool grounded = true;
 
-    private bool IsGrounded()
+    private void IsGrounded()
     {
         RaycastHit2D ray = Physics2D.BoxCast(Collider.bounds.center, Collider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
-        return ray.collider != null;
+        grounded = ray.collider != null;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,38 +28,34 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Move(float direction)
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = direction;
         anim.SetBool("run", horizontalInput != 0);
         if (horizontalInput != 0)
         {
             sr.flipX = horizontalInput > 0;
         }
-        //if (horizontalInput <-0.1f && horizontalInput*3 < transform.localScale.x || horizontalInput >0.1f && horizontalInput * 3 > transform.localScale.x)
         //    transform.localScale = new Vector2(horizontalInput*3, 3);
         rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocityY);
-        if (Input.GetKey(KeyCode.W) && !hasJumped)
-        {
+        
+    }
 
-            if (IsGrounded())
+    public void Jump()
+    {
+            IsGrounded();
+            if (grounded)
             {
                 doubleJump = true;
-                Jump();
+                rb.linearVelocityY = 15;
+                grounded = false;
             }
             else if (doubleJump)
             {
                 doubleJump = false;
-                Jump();
+                rb.linearVelocityY = 15;
             }
-            hasJumped = true;
-        }
-        else if (!Input.GetKey(KeyCode.W)) hasJumped = false;
-    }
-
-    private void Jump()
-    {
-        rb.linearVelocityY = 15;
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
