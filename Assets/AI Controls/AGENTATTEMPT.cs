@@ -28,6 +28,7 @@ public class MlAgentBoss : Agent
     // OnActionReceived metoden bruges under træning
     public override void OnActionReceived(ActionBuffers actions)
     {
+        AddReward(-0.05f);
         switch (actions.DiscreteActions[0])
         {
             case 0:
