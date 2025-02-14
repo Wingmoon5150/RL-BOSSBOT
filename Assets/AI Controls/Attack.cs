@@ -6,6 +6,7 @@ using Input = UnityEngine.Input;
 public class Attack : MonoBehaviour
 {
     public float attackCooldown = 0;
+    public Movement mover;
 
     //I have no fucking clue what I'm doing
     private Animator anim;
@@ -13,17 +14,26 @@ public class Attack : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        
+        mover = GetComponent<Movement>();
+    }
+
+    public void Strike()
+    {
+        if (attackCooldown < 1)
+        {
+            anim.SetBool("attacking", true);
+            attackCooldown = 5;
+        }
+    }
+
+    public void Hit()
+    {
+
     }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.J) && attackCooldown < 1)
-        {
-            anim.SetBool("attacking", true);
-            attackCooldown = 10;
-        }
-        if (attackCooldown < 10) attackCooldown-=1;
+        if (attackCooldown < 5) attackCooldown -= 1;
     }
 
 
@@ -32,5 +42,4 @@ public class Attack : MonoBehaviour
         anim.SetBool("attacking", false);
         attackCooldown -= 1;
     }
-
 }
