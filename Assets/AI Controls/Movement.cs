@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     private Collider2D Collider;
     private bool doubleJump;
     private bool grounded = true;
+    public int faceDir;
 
     private void IsGrounded()
     {
@@ -35,6 +36,8 @@ public class Movement : MonoBehaviour
         if (horizontalInput != 0)
         {
             sr.flipX = horizontalInput > 0;
+            if (horizontalInput < 0) faceDir = -1;
+            else if (horizontalInput > 0) faceDir = 1;
         }
         //    transform.localScale = new Vector2(horizontalInput*3, 3);
         rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocityY);
