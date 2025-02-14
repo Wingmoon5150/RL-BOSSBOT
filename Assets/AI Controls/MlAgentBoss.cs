@@ -18,7 +18,7 @@ public class MlAgentBoss : Agent
         //player = GameObject.FindWithTag("Player").transform; // Find spilleren via dens tag
         mover = GetComponent<Movement>(); // Find movement script
         attack = GetComponent<Attack>();
-        //Time.timeScale = 1;
+        Time.timeScale = 1;
     }
 
     public override void OnEpisodeBegin()
