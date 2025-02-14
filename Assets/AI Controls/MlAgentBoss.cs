@@ -10,6 +10,7 @@ public class MlAgentBoss : Agent
     [SerializeField]private Transform player;
     private Movement mover;
     private Attack attack;
+    private int lastAction;
 
     // Initialiser agenten
     public override void Initialize()
@@ -17,7 +18,7 @@ public class MlAgentBoss : Agent
         //player = GameObject.FindWithTag("Player").transform; // Find spilleren via dens tag
         mover = GetComponent<Movement>(); // Find movement script
         attack = GetComponent<Attack>();
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
     }
 
     public override void OnEpisodeBegin()
@@ -43,13 +44,16 @@ public class MlAgentBoss : Agent
                 break;
 
             case 2:
+                if (lastAction != 2)
                 mover.Jump();
+                AddReward(-3f);
                 break;
 
             case 3:
                 attack.Strike();
                 break;
         }
+        lastAction = actions.DiscreteActions[0];
 
     }
 

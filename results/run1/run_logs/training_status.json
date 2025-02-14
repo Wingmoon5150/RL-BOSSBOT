@@ -9,15 +9,42 @@
                 "auxillary_file_paths": [
                     "results\\run1\\MoverToPlayer\\MoverToPlayer-301690.pt"
                 ]
+            },
+            {
+                "steps": 305235,
+                "file_path": "results\\run1\\MoverToPlayer\\MoverToPlayer-305235.onnx",
+                "reward": 190.79333181381224,
+                "creation_time": 1739531507.3578613,
+                "auxillary_file_paths": [
+                    "results\\run1\\MoverToPlayer\\MoverToPlayer-305235.pt"
+                ]
+            },
+            {
+                "steps": 383480,
+                "file_path": "results\\run1\\MoverToPlayer\\MoverToPlayer-383480.onnx",
+                "reward": 197.65805166331722,
+                "creation_time": 1739532426.9595146,
+                "auxillary_file_paths": [
+                    "results\\run1\\MoverToPlayer\\MoverToPlayer-383480.pt"
+                ]
+            },
+            {
+                "steps": 430388,
+                "file_path": "results\\run1\\MoverToPlayer\\MoverToPlayer-430388.onnx",
+                "reward": 170.33256961227556,
+                "creation_time": 1739533038.264923,
+                "auxillary_file_paths": [
+                    "results\\run1\\MoverToPlayer\\MoverToPlayer-430388.pt"
+                ]
             }
         ],
         "final_checkpoint": {
-            "steps": 301690,
+            "steps": 430388,
             "file_path": "results\\run1\\MoverToPlayer.onnx",
-            "reward": 199.34706880470802,
-            "creation_time": 1739527873.4943774,
+            "reward": 170.33256961227556,
+            "creation_time": 1739533038.264923,
             "auxillary_file_paths": [
-                "results\\run1\\MoverToPlayer\\MoverToPlayer-301690.pt"
+                "results\\run1\\MoverToPlayer\\MoverToPlayer-430388.pt"
             ]
         }
     },

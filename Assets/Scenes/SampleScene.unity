@@ -915,7 +915,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 2e6019644d3304d48a58ce5cff0e1239, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: MoverToPlayer
@@ -938,7 +938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 4
   DecisionStep: 0
-  TakeActionsBetweenDecisions: 0
+  TakeActionsBetweenDecisions: 1
 --- !u!1 &1911318181
 GameObject:
   m_ObjectHideFlags: 0
