@@ -941,6 +941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 0
   mover: {fileID: 0}
+  atBox: {fileID: 877190918}
 --- !u!114 &1691184711
 MonoBehaviour:
   m_ObjectHideFlags: 0

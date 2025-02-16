@@ -8,6 +8,8 @@ public class Attack : MonoBehaviour
     public float attackCooldown = 0;
     public Movement mover;
 
+    [SerializeField] private GameObject atBox;
+
     //I have no fucking clue what I'm doing
     private Animator anim;
 
@@ -15,6 +17,7 @@ public class Attack : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         mover = GetComponent<Movement>();
+        atBox.SetActive(false);
     }
 
     public void Strike()
@@ -28,7 +31,10 @@ public class Attack : MonoBehaviour
 
     public void Hit()
     {
-
+        if (atBox != null)
+        {
+            atBox.SetActive(true); // Show attack box
+        }
     }
 
     private void Update()
@@ -41,5 +47,10 @@ public class Attack : MonoBehaviour
     {
         anim.SetBool("attacking", false);
         attackCooldown -= 1;
+
+        if (atBox != null)
+        {
+            atBox.SetActive(false); // Hide attack box after attack
+        }
     }
 }
