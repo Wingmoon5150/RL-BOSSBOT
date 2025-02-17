@@ -7,6 +7,7 @@ using Unity.MLAgents.Actuators;
 
 public class MlAgentBoss : Agent
 {
+    [SerializeField] private StateAI goal;
     [SerializeField]private Transform player;
     private Movement mover;
     private Attack attack;
@@ -25,6 +26,7 @@ public class MlAgentBoss : Agent
     {
         transform.localPosition = new Vector3(Random.Range(-8f, 8f), -3, 0);
         player.localPosition = new Vector3(Random.Range(-8f, 8f), Random.Range(-3f, 1f), 0);
+        goal.GetNewState();
     }
 
 
