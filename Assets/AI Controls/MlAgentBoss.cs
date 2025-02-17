@@ -9,6 +9,7 @@ public class MlAgentBoss : Agent
 {
     [SerializeField]private Transform player, player2, player3;
     [SerializeField] private GameObject playerObj, player2Obj, player3Obj;
+    private List<GameObject> players = new List<GameObject>();
     private Movement mover;
     private Attack attack;
     private int lastAction;
@@ -17,16 +18,20 @@ public class MlAgentBoss : Agent
     // Initialiser agenten
     public override void Initialize()
     {
+
+        players.Add(playerObj);
+        players.Add(player2Obj);
+        players.Add(player3Obj);
         //player = GameObject.FindWithTag("Player").transform; // Find spilleren via dens tag
         mover = GetComponent<Movement>(); // Find movement script
         attack = GetComponent<Attack>();
-        //Time.timeScale = 1;
+        Time.timeScale = 1;
     }
 
     public override void OnEpisodeBegin()
     {
         RespawnPlayer();
-
+        hitCount = 0;
         transform.localPosition = new Vector3(Random.Range(-8f, 8f), -3, 0);
         player.localPosition = new Vector3(Random.Range(-8f, 8f), Random.Range(-3f, 1f), 0);
         player2.localPosition = new Vector3(Random.Range(-8f, 8f), Random.Range(-3f, 1f), 0);
@@ -37,7 +42,7 @@ public class MlAgentBoss : Agent
     // OnActionReceived metoden bruges under træning
     public override void OnActionReceived(ActionBuffers actions)
     {
-        Debug.Log(actions.DiscreteActions[0]);
+       // Debug.Log(actions.DiscreteActions[0]);
         AddReward(-0.05f);
         switch (actions.DiscreteActions[0])
         {
@@ -67,20 +72,25 @@ public class MlAgentBoss : Agent
     // Metode til at samle observationer (her bruger vi kun spillernes position)
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(player.position); // Tilføj spilleren position til observationen
-        sensor.AddObservation(player2.position); // Tilføj spilleren position til observationen
-        sensor.AddObservation(player3.position); // Tilføj spilleren position til observationen
+        foreach (GameObject p in players)
+        {
+            if (!p.activeSelf)
+            {
+                sensor.AddObservation(p.transform.position); // Tilføj spilleren position til observationen 
+            }
+        }
         sensor.AddObservation(transform.position); // Tilføj bossens position til observationen
     }
 
     public void OnHit()
     {
         Debug.Log("OW!");
-        SetReward(200f);
+        AddReward(200f);
         hitCount++;
 
         if (hitCount >= 3)
         {
+            Debug.Log("all 3 hit" + hitCount);
             EndEpisode();
         }
             
@@ -88,6 +98,9 @@ public class MlAgentBoss : Agent
 
     public void RespawnPlayer()
     {
+        playerObj.GetComponent<Helth>().HP = 1;
+        player2Obj.GetComponent<Helth>().HP = 1;
+        player3Obj.GetComponent<Helth>().HP = 1;
         playerObj.SetActive(true);
         player2Obj.SetActive(true);
         player3Obj.SetActive(true);
