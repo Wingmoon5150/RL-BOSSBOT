@@ -490,6 +490,8 @@ GameObject:
   - component: {fileID: 929012023}
   - component: {fileID: 929012025}
   - component: {fileID: 929012026}
+  - component: {fileID: 929012028}
+  - component: {fileID: 929012027}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Player
@@ -654,6 +656,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &929012027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929012021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03aa238f1d5a3a1429b3bdc9dfa62c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossPos: {fileID: 1691184707}
+--- !u!114 &929012028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929012021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 210c280414bc38f498b3b41fdea63b7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  atBox: {fileID: 0}
+  faceDir: 0
 --- !u!1 &961782078
 GameObject:
   m_ObjectHideFlags: 0
