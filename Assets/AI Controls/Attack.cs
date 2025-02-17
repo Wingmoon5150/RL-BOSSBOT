@@ -48,6 +48,11 @@ public class Attack : MonoBehaviour
         anim.SetBool("attacking", false);
         attackCooldown -= 1;
 
+        
+    }
+
+    public void AttackBoxFinish()
+    {
         if (atBox != null)
         {
             atBox.SetActive(false); // Hide attack box after attack

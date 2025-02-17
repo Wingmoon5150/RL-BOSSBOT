@@ -382,6 +382,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1691184707}
     m_Modifications:
+    - target: {fileID: 1849196337950590999, guid: 118a0bbcf8ebf4441bc34475488fc177, type: 3}
+      propertyPath: m_TagString
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116706764449940811, guid: 118a0bbcf8ebf4441bc34475488fc177, type: 3}
+      propertyPath: m_TagString
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549040444785218199, guid: 118a0bbcf8ebf4441bc34475488fc177, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806926067580426256, guid: 118a0bbcf8ebf4441bc34475488fc177, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5013712570145676476, guid: 118a0bbcf8ebf4441bc34475488fc177, type: 3}
+      propertyPath: m_TagString
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127861842435506397, guid: 118a0bbcf8ebf4441bc34475488fc177, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7529895736413149122, guid: 118a0bbcf8ebf4441bc34475488fc177, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -434,6 +458,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9012432033067798215, guid: 118a0bbcf8ebf4441bc34475488fc177, type: 3}
+      propertyPath: m_TagString
+      value: Attack
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -460,6 +488,8 @@ GameObject:
   - component: {fileID: 929012022}
   - component: {fileID: 929012024}
   - component: {fileID: 929012023}
+  - component: {fileID: 929012025}
+  - component: {fileID: 929012026}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Player
@@ -583,6 +613,47 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &929012025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929012021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28b1731ddcd12b4688687e18f12a4fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 1
+  reinforcementLearningArtificialIntelligence: {fileID: 1691184712}
+--- !u!50 &929012026
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929012021}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &961782078
 GameObject:
   m_ObjectHideFlags: 0
