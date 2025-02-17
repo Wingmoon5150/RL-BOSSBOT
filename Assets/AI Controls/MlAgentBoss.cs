@@ -19,7 +19,7 @@ public class MlAgentBoss : Agent
         //player = GameObject.FindWithTag("Player").transform; // Find spilleren via dens tag
         mover = GetComponent<Movement>(); // Find movement script
         attack = GetComponent<Attack>();
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
     }
 
     public override void OnEpisodeBegin()
@@ -53,6 +53,7 @@ public class MlAgentBoss : Agent
 
             case 3:
                 attack.Strike();
+                AddReward(-5f);
                 break;
         }
         lastAction = actions.DiscreteActions[0];
@@ -66,15 +67,11 @@ public class MlAgentBoss : Agent
         sensor.AddObservation(transform.position); // Tilføj bossens position til observationen
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnHit()
     {
-        
         Debug.Log("OW!");
-        if (collision.transform.tag == "Player")
-        {
             SetReward(200f);
             EndEpisode();
-        }
     }
 
 }
