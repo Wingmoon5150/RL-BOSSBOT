@@ -4,6 +4,7 @@ public class Helth : MonoBehaviour
 {
     [SerializeField] private int HP;
     [SerializeField] private MlAgentBoss reinforcementLearningArtificialIntelligence;
+    [SerializeField] private GameObject goalBox;
 
     //private void OnCollisionEnter2D(Collision2D collision)
     //{
@@ -29,6 +30,6 @@ public class Helth : MonoBehaviour
 
     private void Die()
     {
-        //hi this does nothing right now :3
+        goalBox.SetActive(false);
     }
 }
