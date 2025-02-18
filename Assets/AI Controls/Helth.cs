@@ -31,6 +31,5 @@ public class Helth : MonoBehaviour
     private void Die()
     {
         reinforcementLearningArtificialIntelligence.OnHit();
-        goalBox.SetActive(false);
     }
 }
