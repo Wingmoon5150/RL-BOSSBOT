@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Helth : MonoBehaviour
 {
-    [SerializeField] private int HP;
+    [SerializeField] public int HP;
     [SerializeField] private MlAgentBoss reinforcementLearningArtificialIntelligence;
+    [SerializeField] private GameObject goalBox;
 
     //private void OnCollisionEnter2D(Collision2D collision)
     //{
@@ -16,12 +17,12 @@ public class Helth : MonoBehaviour
     //    }
     //}
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("owie " + collision);
         if (collision.transform.tag == "Attack")
         {
-            reinforcementLearningArtificialIntelligence.OnHit();
             HP--;
             if (HP <= 0) Die();
         }
@@ -29,6 +30,6 @@ public class Helth : MonoBehaviour
 
     private void Die()
     {
-        //hi this does nothing right now :3
+        reinforcementLearningArtificialIntelligence.OnHit();
     }
 }

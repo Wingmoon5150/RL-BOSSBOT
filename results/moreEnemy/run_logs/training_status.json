@@ -1,0 +1,29 @@
+{
+    "MoverToPlayer": {
+        "checkpoints": [
+            {
+                "steps": 483030,
+                "file_path": "results\\moreEnemy\\MoverToPlayer\\MoverToPlayer-483030.onnx",
+                "reward": -85.95000584920247,
+                "creation_time": 1739887636.2348096,
+                "auxillary_file_paths": [
+                    "results\\moreEnemy\\MoverToPlayer\\MoverToPlayer-483030.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 483030,
+            "file_path": "results\\moreEnemy\\MoverToPlayer.onnx",
+            "reward": -85.95000584920247,
+            "creation_time": 1739887636.2348096,
+            "auxillary_file_paths": [
+                "results\\moreEnemy\\MoverToPlayer\\MoverToPlayer-483030.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.12.1+cpu"
+    }
+}
