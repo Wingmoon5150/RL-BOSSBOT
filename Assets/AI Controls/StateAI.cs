@@ -7,6 +7,7 @@ public class StateAI : MonoBehaviour
     private int state;
     private int randomDir;
     private int jumpcd;
+    private int runDir;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +18,8 @@ public class StateAI : MonoBehaviour
         randomDir *= 2;
         randomDir++;
         Debug.Log("current state is: " + state);
+        state = 4;
+        runDir = 1;
     }
 
     // Update is called once per frame
@@ -46,8 +49,18 @@ public class StateAI : MonoBehaviour
                 break;
 
             case 4: //juke
-
-                break;
+                if (Random.Range(1, 300) == 1)
+                    runDir *= -1;
+                if (transform.localPosition.x >= 7.5f)
+                    runDir = -1;
+                else if (transform.localPosition.x <= -7.5f)
+                    runDir = 1;
+                mover.Move(runDir);
+                if (bossPos.localPosition.x > transform.localPosition.x && runDir == 1 && bossPos.localPosition.y < -3f)
+                    mover.Jump();
+                if (bossPos.localPosition.x < transform.localPosition.x && runDir == -1 && bossPos.localPosition.y < -3f)
+                    mover.Jump();
+                    break;
         }
     }
 
