@@ -651,6 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 929012025}
+  scene: LoseScene
 --- !u!212 &700985844
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1995,6 +1996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 1691184715}
+  scene: WinScene
 --- !u!212 &2122095841
 SpriteRenderer:
   m_ObjectHideFlags: 0
