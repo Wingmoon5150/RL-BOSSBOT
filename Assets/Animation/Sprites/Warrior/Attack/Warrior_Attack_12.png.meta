@@ -134,10 +134,10 @@ TextureImporter:
         serializedVersion: 2
         x: 1
         y: 0
-        width: 41
+        width: 50
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -150,33 +150,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Warrior_Attack_12_1
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 15
-        width: 9
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b7bfcc2c3beb57f80800000000000000
-      internalID: -8109365874734072965
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4ef193453675603418fb1fc6ee165045
     internalID: 0
     vertices: []
     indices: 

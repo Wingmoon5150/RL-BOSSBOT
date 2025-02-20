@@ -5,12 +5,15 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private GameObject atBox;
+
     private Animator anim;
     private SpriteRenderer sr;
     private Rigidbody2D rb;
     private Collider2D Collider;
     private bool doubleJump;
     private bool grounded = true;
+    public int faceDir;
 
     private void IsGrounded()
     {
@@ -24,6 +27,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Collider = GetComponent<Collider2D>();
         sr = GetComponent<SpriteRenderer>();
+        
         anim = GetComponent<Animator>();
     }
 
@@ -32,13 +36,30 @@ public class Movement : MonoBehaviour
     {
         float horizontalInput = direction;
         anim.SetBool("run", horizontalInput != 0);
+
         if (horizontalInput != 0)
         {
             sr.flipX = horizontalInput > 0;
+
+            if (horizontalInput < 0) faceDir = -1;
+            else if (horizontalInput > 0) faceDir = 1;
+
+            // Flip attack boxens scale
+            if (atBox != null)
+            {
+                //Flip Scale
+                Vector3 scale = atBox.transform.localScale;
+                scale.x = Mathf.Abs(scale.x) * -faceDir; // faceDir styrer flip
+                atBox.transform.localScale = scale;
+
+                //Flip position
+                Vector3 pos = atBox.transform.localPosition;
+                pos.x = Mathf.Abs(pos.x) * faceDir;
+                atBox.transform.localPosition = pos;
+            }
         }
-        //    transform.localScale = new Vector2(horizontalInput*3, 3);
+
         rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocityY);
-        
     }
 
     public void Jump()
