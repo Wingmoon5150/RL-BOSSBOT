@@ -1,4 +1,6 @@
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Helth : MonoBehaviour
 {
@@ -30,6 +32,6 @@ public class Helth : MonoBehaviour
 
     private void Die()
     {
-        reinforcementLearningArtificialIntelligence.OnHit();
+
     }
 }
